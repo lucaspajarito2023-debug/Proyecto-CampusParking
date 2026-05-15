@@ -1,0 +1,161 @@
+:root{
+    --background-color:#061321;
+    --secundary-color:#3F4753;
+    --border-color:#9FA7B2;
+    --button-color:#fff7ee;
+    --hover-color:#AA7F56;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Caveat", cursive;
+}
+
+body{
+    background:var(--background-color);
+    min-height:100vh;
+    padding:20px;
+}
+
+.grid-container{
+    display:grid;
+    min-height:95vh;
+    gap:15px;
+    grid-template-columns:220px 1fr 250px;
+    grid-template-rows:90px 1fr 60px;
+    grid-template-areas:
+    "header header header"
+    "menu actions sidebar"
+    "footer footer footer";
+}
+
+.panel{
+    background:var(--button-color);
+    border-radius:15px;
+    padding:20px;
+    border:2px solid var(--border-color);
+    box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+.header{
+    grid-area:header;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--secundary-color);
+    color:white;
+    font-size:30px;
+}
+
+.menu{
+    grid-area:menu;
+}
+
+.actions{
+    grid-area:actions;
+    overflow-y:auto;
+}
+
+.sidebar{
+    grid-area:sidebar;
+}
+
+.footer{
+    grid-area:footer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--secundary-color);
+    color:white;
+}
+
+.menu-list{
+    list-style:none;
+}
+
+.menu-list li{
+    margin:20px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu-list li:hover{
+    transform:translateX(10px);
+    color:var(--hover-color);
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid gray;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:var(--secundary-color);
+    color:white;
+    margin-top:10px;
+}
+
+button:hover{
+    opacity:0.8;
+}
+
+.slot-container{
+    margin-top:20px;
+}
+
+.slot-category{
+    margin-bottom:30px;
+}
+
+.slots-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(100px,1fr));
+    gap:10px;
+}
+
+.slot{
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.free{
+    background:#7dff7d;
+}
+
+.occupied{
+    background:#ff7272;
+
+    color:white;
+}
+
+.dashboard-box{
+    margin-bottom:20px;
+    padding:15px;
+    background:#eee;
+    border-radius:10px;
+}
+
+@media(max-width:900px){
+
+    .grid-container{
+        grid-template-columns:1fr;
+        grid-template-areas:
+        "header"
+        "menu"
+        "actions"
+        "sidebar"
+        "footer";
+    }
+}
