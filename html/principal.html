@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/principal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="grid-container">
+    <!-- HEADER -->
+    <header class="panel header">
+        SISTEMA DE ESTACIONAMIENTO
+    </header>
+
+    <!-- MENU -->
+    <nav class="panel menu">
+        <h2>Menú</h2>
+        <ul class="menu-list">
+            <li onclick="showProfile()">
+                👤 Perfil
+            </li>
+            <li onclick="showEntryForm()">
+                🚗 Entradas
+            </li>
+            <li onclick="showSlots()">
+                ⟳ Actualizaciones
+            </li>
+            <li onclick="showExit()">
+                📊 Salidas
+            </li>
+            <li>
+                💬 Centro de ayuda
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ACTIONS -->
+    <main class="panel actions" id="dynamic-content">
+
+    </main>
+    <!-- SIDEBAR -->
+
+    <aside class="panel sidebar">
+        <h2>Dashboard</h2>
+        <div id="dashboard-info"></div>
+    </aside>
+
+    <!-- FOOTER -->
+    <footer class="panel footer">
+        Campus Parking © 2026
+    </footer>
+</div>
+<script src="../js/database.js"></script>
+<script src="../js/principal.js"></script>
+</body>
+</html>
