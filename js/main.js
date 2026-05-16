@@ -21,6 +21,7 @@ if (!localStorage.getItem("vehicles")) {
         JSON.stringify([])
     );
 }
+
 const formulario = document.getElementById("login-form");
 
 const admin = JSON.parse(
@@ -28,21 +29,34 @@ const admin = JSON.parse(
 );
 
 formulario.addEventListener("submit", function(e){
+
     e.preventDefault();
+
     const user = document.getElementById("user").value;
     const pass = document.getElementById("pass").value;
+
     if(user === "" || pass === ""){
         alert("Complete todos los campos");
         return;
     }
-    if(
-        (user === admin.user || user === admin.email)
-        &&
-        pass === admin.password
-    ){
-        localStorage.setItem("session", "active");
-        window.location.href = "principal.html";
-    }else{
-        alert("Credenciales incorrectas");
-    }
+
+    // ⏳ Simulación de carga login
+    setTimeout(() => {
+
+        if(
+            (user === admin.user || user === admin.email)
+            &&
+            pass === admin.password
+        ){
+
+            localStorage.setItem("session", "active");
+            window.location.href = "principal.html";
+
+        }else{
+
+            alert("Credenciales incorrectas");
+
+        }
+
+    }, 1000); // 1 segundo
 });
