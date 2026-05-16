@@ -50,7 +50,7 @@ formulario.addEventListener("submit", function(e){
         ){
 
             localStorage.setItem("session", "active");
-            window.location.href = "../html/principal.html";
+            window.location.href = "principal.html";
 
         }else{
 

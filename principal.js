@@ -101,7 +101,7 @@ function logout(){
             "session"
         );
         window.location.href =
-        "../index.html";
+        "index.html";
     }, 500);
 }
 
