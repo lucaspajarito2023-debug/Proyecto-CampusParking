@@ -230,7 +230,6 @@ function renderSlots(type,total){
     return html;
 }
 
-
 // SALIDAS
 function showExit(){
     dynamicContent.innerHTML = `
