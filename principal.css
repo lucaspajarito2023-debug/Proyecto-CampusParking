@@ -113,6 +113,7 @@ body{
 .actions > *{
     width:100%;
     max-width:700px;
+    
 }
 .actions h2{
     font-size:40px;
@@ -205,6 +206,7 @@ button:hover{
     text-align:center;
     font-weight:bold;
     font-size:22px;
+    text-align: center;
 }
 .free{
     background:#7dff7d;
