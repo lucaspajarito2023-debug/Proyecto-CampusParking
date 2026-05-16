@@ -78,7 +78,6 @@ function saveProfile(){
         user:document.getElementById(
             "newUser"
         ).value,
-
         password:document.getElementById(
             "newPassword"
         ).value
@@ -102,7 +101,7 @@ function logout(){
             "session"
         );
         window.location.href =
-        "../html/index.html";
+        "../index.html";
     }, 500);
 }
 
