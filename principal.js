@@ -3,7 +3,12 @@ const dynamicContent =document.getElementById("dynamic-content");
 let vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
 
 let totalEarnings = JSON.parse(localStorage.getItem("totalEarnings")) || 0;
+let historicalRecords = JSON.parse(localStorage.getItem("historicalRecords")) || []; // Nuevo array para el historial de servicios
 
+// ===============================
+
+
+// ===============================  
 const slots = {
     Moto:10,
     Carro:20,
@@ -323,6 +328,18 @@ function finishService(plate){
         // SUMAR GANANCIAS
         totalEarnings += total;
         localStorage.setItem("totalEarnings",JSON.stringify(totalEarnings));
+
+        // Guardar el vehículo en el historial de servicios completados
+        const historicalRecord = {
+            ...vehicle, // Copia todas las propiedades del vehículo actual
+            exitTime: exit.getTime(), // Guarda el timestamp de salida
+            exit: exit.toLocaleString(), // Guarda la fecha y hora de salida formateada
+            earnings: total.toFixed(2) // Guarda las ganancias de este servicio
+        };
+        historicalRecords.push(historicalRecord);
+        localStorage.setItem("historicalRecords", JSON.stringify(historicalRecords));
+
+        // Mostrar alerta de finalización de servicio
         alert(`
                 Entrada:
                 ${vehicle.entry}
@@ -331,11 +348,84 @@ function finishService(plate){
                 ${exit.toLocaleString()}
 
                 Total a pagar:
-                Q${total.toFixed(2)}
+                Q${total.toFixed(2)}    
             `);
         deleteVehicle(plate);
         showExit();
     },500);
+}
+
+// *********RENDERIZAR HISTORIAL*********
+function renderHistory(type,total){
+    return `<p>Cantidad de ${type}: ${total}</p>`;
+}
+//Historial de automoviles ingresados
+function showHistory(){
+    const motos = vehicles.filter(v => v.type === "Moto").length;
+    const carros = vehicles.filter(v => v.type === "Carro").length;
+    const buses = vehicles.filter(v => v.type === "Bus").length;
+
+    dynamicContent.innerHTML = `
+    <div>
+        <h2>Historial de Vehículos</h2>
+        <div class="slot-container">
+            ${renderHistory("Moto", motos)}
+            ${renderHistory("Carro", carros)}
+            ${renderHistory("Bus", buses)}
+            <p><strong>Total General: ${vehicles.length}</strong></p>
+        </div>
+    </div>
+    `;
+}
+
+// *********RENDERIZAR REGISTRO DE SERVICIO HISTÓRICO INDIVIDUAL*********
+// Esta función ayuda a formatear cada registro histórico para su visualización.
+function renderServiceRecord(record) {
+    return `
+        <div class="dashboard-box">
+            <p><strong>Placa:</strong> ${record.plate}</p>
+            <p><strong>Tipo:</strong> ${record.type}</p>
+            <p><strong>Slot:</strong> ${record.slot}</p>
+            <p><strong>Entrada:</strong> ${record.entry}</p>
+            <p><strong>Salida:</strong> ${record.exit}</p>
+            <p><strong>Ganancias:</strong> Q${record.earnings}</p>
+        </div>
+    `;
+}// no borrar historial
+    function saveHistory(){
+        const history = vehicles.map(   
+            )}
+            vehicle => {
+                return {
+                    type: vehicle.type,
+                    plate: vehicle.plate,
+                    slot: vehicle.slot,
+                    entryTime: vehicle.entryTime,
+                    entry: vehicle.entry,   
+}
+}
+      
+
+// *********MOSTRAR HISTORIAL DE SERVICIOS COMPLETADOS*********
+// Esta función mostrará el historial de vehículos que ya han salido del parqueo.
+function showServiceHistory(){
+    if (historicalRecords.length === 0) {
+        dynamicContent.innerHTML = `
+            <div>
+                <h2>Historial de Servicios Completados</h2>
+                <p>No hay registros históricos de servicios completados.</p>
+            </div>
+        `;
+        return;
+    }
+    dynamicContent.innerHTML = `
+        <div>
+            <h2>Historial de Servicios Completados</h2>
+            <div class="slot-container">
+                ${historicalRecords.map(record => renderServiceRecord(record)).join('')}
+            </div>
+        </div>
+    `;
 }
 
 //********* SIDEBAR*********

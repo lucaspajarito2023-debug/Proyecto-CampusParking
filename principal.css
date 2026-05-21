@@ -231,6 +231,28 @@ button:hover{
     flex-direction:column;
     gap:10px;
 }
+
+/*==========================*/
+/*OPCIONES DE ESTADISTICAS*/
+/*==========================*/
+.list-options{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+
+}
+.list-options li{
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    background-color: #dadada;
+    padding: 10px;
+    border-radius: 25px;
+}
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
