@@ -28,7 +28,7 @@ Paso 2: Ferificar que estas en la rama correcta (master).
 Paso 3: Ejecutar desde el archivo Index.html.
 
 # Link de visualizacion de la pagina.
-https://lucaspajarito2023-debug.github.io/Proyecto-CampusParking/
+(https://lucaspajarito2023-debug.github.io/Proyecto--JavaScript.-CampusParking-Lucas-Pajarito-/)
 
 # 🖊️Autor.
 * **Lucas Pajarito**  - [lucaspajarito23-debug](https://github.com/lucaspajarito2023-debug)
