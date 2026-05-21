@@ -113,6 +113,8 @@ body{
 .actions > *{
     width:100%;
     max-width:700px;
+    text-align: center;
+
     
 }
 .actions h2{
@@ -214,6 +216,7 @@ button:hover{
 .occupied{
     background:#ff7272;
     color:white;
+    text-align: center;
 }
 /* ========================= */
 /* DASHBOARD */

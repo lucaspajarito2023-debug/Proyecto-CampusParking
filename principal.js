@@ -190,7 +190,7 @@ function showSlots(){
     setTimeout(() => {
         dynamicContent.innerHTML = `
         <h2>Slots</h2>
-        <div class="slot-container">
+        <div class="action slot-container">
             ${renderSlots("Moto",10)}
             ${renderSlots("Carro",20)}
             ${renderSlots("Bus",10)}
@@ -275,7 +275,7 @@ function searchVehicle(){
                 ${vehicle.slot}
             </p>
             <button onclick="finishService('${vehicle.plate}')">Finalizar</button>
-            <buttononclick="deleteVehicle('${vehicle.plate}')"> Eliminar</button>
+            <button onclick="deleteVehicle('${vehicle.plate}')"> Eliminar</button>
         </div>
         `;
     },400);
@@ -392,17 +392,16 @@ function renderServiceRecord(record) {
         </div>
     `;
 }// no borrar historial
-    function saveHistory(){
-        const history = vehicles.map(   
-            )}
-            vehicle => {
-                return {
-                    type: vehicle.type,
-                    plate: vehicle.plate,
-                    slot: vehicle.slot,
-                    entryTime: vehicle.entryTime,
-                    entry: vehicle.entry,   
-}
+function saveHistory(){
+    const history = vehicles.map(vehicle => {
+        return {
+            type: vehicle.type,
+            plate: vehicle.plate,
+            slot: vehicle.slot,
+            entryTime: vehicle.entryTime,
+            entry: vehicle.entry,   
+        };
+    });
 }
       
 
